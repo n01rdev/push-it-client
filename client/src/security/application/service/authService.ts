@@ -21,10 +21,14 @@ apiClient.interceptors.request.use((config: InternalAxiosRequestConfig) => {
 });
 
 export default {
-    register(user: User) {
-        return apiClient.post('/register', user);
+    async register(user: User) {
+        const response = await apiClient.post('/register', user);
+        localStorage.setItem('authToken', response.data.token);
+        localStorage.setItem('userUuid', response.data.user.uuid);
     },
-    login(user: User) {
-        return apiClient.post('/login', user);
+    async login(user: User) {
+        const response = await apiClient.post('/login', user);
+        localStorage.setItem('authToken', response.data.token);
+        localStorage.setItem('userUuid', response.data.user.uuid);
     }
 }

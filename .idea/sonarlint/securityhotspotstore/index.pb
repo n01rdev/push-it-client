@@ -83,3 +83,11 @@ a
 1client/src/ui/component/common/AlertComponent.vue,a\a\aa5f716dd58baa0d458adde468f30e09aacde9ff
 f
 6client/src/security/application/service/authService.ts,b\4\b4517b87bd5fdaa8a6ac53b4729d48bd5ae9e31e
+j
+:client/src/posit/application/service/createPositService.ts,c\4\c4c9ce7af641942b706a715d1c2dce2c79b5331d
+V
+&client/src/posit/domain/model/Posit.ts,2\6\264ba3e3fd5fe17ee2bf4dad864795211d0e3aaf
+p
+@client/src/posit/presentation/component/CreatePositComponent.vue,7\a\7a72c84ba4eb5c84a5f7b192662bdc51b22e92f7
+n
+>client/src/posit/presentation/component/ListPositComponent.vue,b\2\b24e2e229b11f6ba673aaf5c10ab21493bd54d4a

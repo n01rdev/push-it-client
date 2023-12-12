@@ -1,5 +1,5 @@
 <template>
-  <fwb-alert v-if="message" :closable="true" :icon="true" :type="type">
+  <fwb-alert v-if="message" :closable="true" :icon="true" :type="type" class="bg-gray-50 dark:bg-gray-700 my-2">
     {{ message }}
   </fwb-alert>
 </template>
