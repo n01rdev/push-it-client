@@ -75,3 +75,11 @@ K
 client/src/pages/test.astro,9\8\98973fac8d828cd24c60bb5637902092ea1228d3
 c
 3client/src/ui/component/common/DarkModeSwitcher.vue,3\6\36f46fe300fbd59c826104839eda7b115cbefcd9
+M
+client/public/github-mark.svg,5\8\587308f6f53f2262662abaf35ffcd8c7970511e0
+H
+client/public/github.svg,1\0\10c0f29dca28427422788468ec9a72999b8b1121
+a
+1client/src/ui/component/common/AlertComponent.vue,a\a\aa5f716dd58baa0d458adde468f30e09aacde9ff
+f
+6client/src/security/application/service/authService.ts,b\4\b4517b87bd5fdaa8a6ac53b4729d48bd5ae9e31e
