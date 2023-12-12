@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import authenticateService from "../../application/service/authenticateService";
+import authService from "../../application/service/authService";
 
 export default defineComponent({
   setup() {
@@ -18,7 +18,7 @@ export default defineComponent({
 
     const login = async () => {
       try {
-        await authenticateService.login(user.value);
+        await authService.login(user.value);
         console.log('Logged in successfully');
       } catch (error) {
         console.error(error);

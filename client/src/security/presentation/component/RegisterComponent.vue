@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import createSecurityService from "../../application/service/createSecurityService";
+import authService from "../../application/service/authService";
 
 export default defineComponent({
   setup() {
@@ -18,7 +18,7 @@ export default defineComponent({
 
     const register = async () => {
       try {
-        const response = await createSecurityService.register(user.value);
+        const response = await authService.register(user.value);
         localStorage.setItem('authToken', response.data);
         console.log('Registered successfully');
       } catch (error) {
