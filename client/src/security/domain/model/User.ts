@@ -1,4 +1,4 @@
-class User {
+export class User {
     email: string;
     password: string;
 
@@ -28,5 +28,3 @@ class User {
         }
     }
 }
-
-export default User;
