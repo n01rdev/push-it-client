@@ -23,3 +23,25 @@ J
 client/tailwind.config.mjs,a\4\a47d1bfc0eef2fb33a2242e292e05aaae556236a
 D
 client/tsconfig.json,c\3\c398efeebb274d89afc49d948356d62eba8bdeb2
+m
+=client/src/security/application/service/createSecurityService,f\f\ffb2eb5aa928efc4396427c0602a138607a94a98
+p
+@client/src/security/application/service/createSecurityService.ts,1\c\1c2a8bec6afef56962b3a170aa4d6e07545433cb
+X
+(client/src/security/domain/model/User.ts,1\5\15077c83fd33351fa79562101e5b47b623471d58
+h
+8client/src/security/presentation/components/Register.vue,0\1\01911451003baa4be189d648b6de3c1ca560d2b4
+f
+6client/src/security/presentation/view/RegisterView.vue,0\a\0a9965da9490e96558ecec08c3fedc2ea833df8d
+p
+@client/src/security/presentation/component/RegisterComponent.vue,a\6\a60459f89cd48d215fbc21dad1e929910448dd89
+A
+client/Dockerfile,8\6\86b9845f28676d6ef06f2f252b8fb6ee4d73815a
+D
+client/.dockerignore,9\b\9bc953ac6743f3950afddfea67285c838a872fac
+J
+client/src/router/index.ts,2\9\295a5e2174aeced897b9c4f61f74f546a97e8fdb
+O
+client/src/pages/Register.astro,2\7\27d363bd4a040344dc6d71d175a2ff6ddfe77a61
+O
+client/src/pages/register.astro,9\c\9c41278b5c0996bf702eee399849f5b3766e4600
