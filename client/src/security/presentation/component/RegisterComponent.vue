@@ -38,21 +38,19 @@ import AlertComponent from '../../../ui/component/common/AlertComponent.vue';
 export default defineComponent({
   components: {AlertComponent},
   setup() {
-    const user = ref(new User());
+    const user = ref(new User('', ''));
     const confirmPassword = ref('');
     const error = ref('');
     const success = ref(false);
 
     const resetAlerts = () => {
       error.value = '';
-      success.value = false;
     };
 
     const register = async () => {
       try {
         user.value.validatePassword(confirmPassword.value);
-        const response = await authService.register(user.value);
-        localStorage.setItem('authToken', response.data);
+        await authService.register(user.value);
         success.value = true;
         error.value = '';
       } catch (err) {

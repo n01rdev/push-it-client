@@ -2,6 +2,11 @@ export class User {
     email: string;
     password: string;
 
+    constructor(email: string, password: string) {
+        this.email = email;
+        this.password = password;
+    }
+
     validatePassword(confirmPassword: string): void {
         if (this.password !== confirmPassword) {
             throw new Error('Passwords do not match.');
@@ -21,10 +26,6 @@ export class User {
 
         if (!RegExp(/\d/).exec(this.password)) {
             throw new Error('Password must contain at least one number.');
-        }
-
-        if (!RegExp(/[!@#$%^&*]/).exec(this.password)) {
-            throw new Error('Password must contain at least one special character.');
         }
     }
 }
