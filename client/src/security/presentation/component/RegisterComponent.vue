@@ -2,8 +2,8 @@
     <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
       Create an account
     </h1>
-    <AlertComponent :message="error" :type="'danger'" v-if="error" />
-    <AlertComponent :message="'Registered successfully'" :type="'success'" v-if="success" />
+    <AlertComponent :message="error" :type="'danger'" v-if="error" @close="resetAlerts" />
+    <AlertComponent :message="'Registered successfully'" :type="'success'" v-if="success" @close="resetAlerts" />
     <form @submit.prevent="register" class="space-y-4 md:space-y-6">
     <div>
       <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
@@ -43,6 +43,11 @@ export default defineComponent({
     const error = ref('');
     const success = ref(false);
 
+    const resetAlerts = () => {
+      error.value = '';
+      success.value = false;
+    };
+
     const register = async () => {
       try {
         user.value.validatePassword(confirmPassword.value);
@@ -55,7 +60,7 @@ export default defineComponent({
         success.value = false;
       }
     };
-    return { user, confirmPassword, error, success, register };
+    return { user, confirmPassword, error, success, register, resetAlerts };
   }
 });
 </script>

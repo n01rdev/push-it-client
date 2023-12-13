@@ -1,5 +1,5 @@
 <template>
-  <fwb-alert v-if="message" :closable="true" :icon="true" :type="type" class="bg-gray-50 dark:bg-gray-700 my-2">
+  <fwb-alert v-if="message" :closable="true" :icon="true" :type="type" class="bg-gray-50 dark:bg-gray-700 my-2" @close="handleClose">
     {{ message }}
   </fwb-alert>
 </template>
@@ -20,6 +20,11 @@ export default defineComponent({
     type: {
       type: String as () => AlertType,
       required: true
+    }
+  },
+  methods: {
+    handleClose() {
+      this.$emit('close');
     }
   }
 });
