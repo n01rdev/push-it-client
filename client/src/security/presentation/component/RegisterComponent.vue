@@ -19,7 +19,7 @@
     </div>
       <div class="flex items-start">
         <div class="flex items-center h-5">
-          <input id="terms" aria-describedby="terms" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required="">
+          <input id="terms" aria-describedby="terms" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required>
         </div>
         <div class="ml-3 text-sm">
           <label for="terms" class="font-light text-gray-500 dark:text-gray-300">I accept the <a class="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">Terms and Conditions</a></label>
@@ -34,6 +34,7 @@ import { defineComponent, ref } from 'vue';
 import { User } from "../../domain/model/User.ts";
 import authService from '../../application/service/authService';
 import AlertComponent from '../../../ui/component/common/AlertComponent.vue';
+import NProgress from 'nprogress';
 
 export default defineComponent({
   components: {AlertComponent},
@@ -48,14 +49,20 @@ export default defineComponent({
     };
 
     const register = async () => {
+      NProgress.start();
       try {
         user.value.validatePassword(confirmPassword.value);
         await authService.register(user.value);
         success.value = true;
         error.value = '';
-      } catch (err) {
+        NProgress.done();
+        setTimeout(() => {
+          window.location.href = '/login';
+        }, 2000);
+      } catch (err: any) {
         error.value = err.message;
         success.value = false;
+        NProgress.done();
       }
     };
     return { user, confirmPassword, error, success, register, resetAlerts };
