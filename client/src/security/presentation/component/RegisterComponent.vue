@@ -56,9 +56,8 @@ export default defineComponent({
         success.value = true;
         error.value = '';
         NProgress.done();
-        setTimeout(() => {
-          window.location.href = '/login';
-        }, 2000);
+        window.location.href = '/login';
+
       } catch (err: any) {
         error.value = err.message;
         success.value = false;

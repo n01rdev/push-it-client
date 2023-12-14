@@ -20,13 +20,14 @@ import { Posit } from '../../domain/model/Posit';
 import createPositService from "../../application/service/createPositService";
 import AlertComponent from '../../../ui/component/common/AlertComponent.vue';
 import {IsAuthenticatedService} from "../../../security/application/service/isAuthenticatedService.ts";
+import NProgress from "nprogress";
 
 export default defineComponent({
   components: { AlertComponent },
   setup() {
     let authorUuid = '';
     if (typeof window !== 'undefined') {
-      authorUuid = localStorage.getItem('userUuid') || '';
+      authorUuid = localStorage.getItem('userUuid') ?? '';
     }
 
     const posit = ref(new Posit('', '', authorUuid));
@@ -46,13 +47,17 @@ export default defineComponent({
     };
 
     const createPosit = async () => {
+      NProgress.start();
       try {
         await createPositService.create(posit.value);
         success.value = true;
         error.value = '';
-      } catch (error) {
-        error.value = error.message;
+        NProgress.done();
+        window.location.href = '/posits/main';
+      } catch (err: any) {
+        error.value = err.message;
         success.value = false;
+        NProgress.done();
       }
     };
 

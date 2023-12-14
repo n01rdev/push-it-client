@@ -28,21 +28,18 @@ export default defineComponent({
     };
 
     const login = async () => {
+      NProgress.start();
       try {
         await authService.login(user.value);
         success.value = true;
         error.value = '';
+        NProgress.done();
+        window.location.href = '/posits/create';
 
-        NProgress.start();
-
-        setTimeout(() => {
-          window.location.href = '/posits/create';
-          NProgress.done();
-        }, 2000);
-
-      } catch (error) {
-        error.value = error.message;
+      } catch (err: any) {
+        error.value = err.message;
         success.value = false;
+        NProgress.done();
       }
     };
 
